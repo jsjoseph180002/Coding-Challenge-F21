@@ -1,32 +1,19 @@
-# ACM Research Coding Challenge (Fall 2021)
+# Jeremiah Joseph ACM Research Coding Challenge README
 
-## [](https://github.com/ACM-Research/Coding-Challenge-F21#no-collaboration-policy)No Collaboration Policy
 
-**You may not collaborate with anyone on this challenge.**  You  _are_  allowed to use Internet documentation. If you  _do_  use existing code (either from Github, Stack Overflow, or other sources),  **please cite your sources in the README**.
 
-## [](https://github.com/ACM-Research/Coding-Challenge-F21#submission-procedure)Submission Procedure
+## Approach
+I decided to use python due  mostly to the nltk library and its usefulness in the project. I used a rules based approach in my solution. The reason why is because these sentences came from a passage in a story. When looking at existing datasets, I felt that there was not much data that would produce a good machine learning model of the sentiment. Also, because the story was relatively short and did not come with any existing sentiment scores, I felt that trying to create a machine learning model with a portion of the text seemed like a bad approach. After choosing a rules based approach, I researched and found two good rules based metrics: textblob and VADER. In my code, you can see that I compared the two. From the results I saw that the VADER seemed to be doing better at recognizing the sentiments. A reason why I believe this is the case is VADER is designed with social media texts in mind. Due to the numerous sentences that were fairly short and conversation based, my hypothesis is this design seemed to perform well. I tokenized the text based on the sentences and got a score for each sentence. I then converted the score from (-1,1) to a score from [1, 5] by evenly dividing (-1,1) to 5 equal regions. I then took the mean of that to get the overall sentiment score. 
 
-Please follow the below instructions on how to submit your answers.
+## Performance/Analysis 
+I ended up with an overall score of 3.625. This means that the text is slightly positive as a score is from [1,5] where 1 is extremely negative sentiment and 5 is extremely positive sentiment. I felt that this was a fairly good evaluation of the text as especially the second paragraph seemed to have a slightly positive tone when describing the individual. A feature of my solution is that I have a sentence by sentence breakdown of the score. In this we can see that the beginning scores seemed to be lower, which makes sense as the first paragraph details an argument. The ending scores are much higher, as towards the end the writer expresses praise for certain character traits of a person in the story. My expectations were that the scores would be slightly lower for the beginning paragraph, but the scores stayed for the most part at 2 or 3.  Overall, I felt that this approach did a fairly good job at finding the overall sentiment of the text. 
 
-1.  Create a  **public**  fork of this repo and name it  `ACM-Research-Coding-Challenge-F21`. To fork this repo, click the button on the top right and click the "Fork" button.
+## Future Work
+For future work I would likley recommend constructing a dataset and surveying people on the sentiment. This would allow for the use of a machine learning model to be implimented along with the metrics I used. This could possibly allow for even better results. 
 
-2.  Clone the fork of the repo to your computer using  `git clone [the URL of your clone]`. You may need to install Git for this (Google it).
-
-3.  Complete the Challenge based on the instructions below.
-
-4.  Submit your solution by filling out this [form](https://acmutd.typeform.com/to/zF1IcBGR).
-
-## Assessment Criteria 
-
-Submissions will be evaluated holistically and based on a combination of effort, validity of approach, analysis, adherence to the prompt, use of outside resources (encouraged), promptness of your submission, and other factors. Your approach and explanation (detailed below) is the most weighted criteria, and partial solutions are accepted. 
-
-## [](https://github.com/ACM-Research/Coding-Challenge-S21#question-one)Question One
-
-[Sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis) is a natural language processing technique that computes a sentiment score for a body of text. This sentiment score can quantify how positive, negative, or neutral the text is. The following dataset in  `input.txt`  contains a relatively large body of text.
-
-**Determine an overall sentiment score of the text in this file, explain what this score means, and contrast this score with what you expected.**  If your solution also provides different metrics about the text (magnitude, individual sentence score, etc.), feel free to add it to your explanation.   
-
-**You may use any programming language you feel most comfortable. We recommend Python because it is the easiest to implement. You're allowed to use any library/API you want to implement this**, just document which ones you used in this README file. Try to complete this as soon as possible as submissions are evaluated on a rolling basis.
-
-Regardless if you can or cannot answer the question, provide a short explanation of how you got your solution or how you think it can be solved in your README.md file. However, we highly recommend giving the challenge a try, you just might learn something new!
+## Sources
+I did not copy any code from an existing project but here are a sources which I used to help come up with my approach. <br />
+1) https://monkeylearn.com/sentiment-analysis/ <br />
+2) https://towardsdatascience.com/fine-grained-sentiment-analysis-in-python-part-1-2697bb111ed4 <br /> 
+3) https://www.guru99.com/tokenize-words-sentences-nltk.html <br />
 
